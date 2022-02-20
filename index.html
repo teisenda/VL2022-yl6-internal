@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tõnis</title>
+
+    <style>
+
+        html {
+            background-image: linear-gradient( 65.9deg,  rgba(85,228,224,1) 5.5%, rgba(75,68,224,0.74) 54.2%, rgba(64,198,238,1) 55.2%, rgba(177,36,224,1) 98.4% );
+        }
+
+        body {
+            max-width: 1200px;
+            margin: 20px auto 5px auto;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        }
+
+        table, th, td{
+            border:1px solid black;
+        }
+        td{
+            padding: 5px;
+        }
+        
+        a:link{
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #444;
+            text-shadow:
+                    1px 0px 1px #ccc, 0px 1px 1px #eee,
+                    2px 1px 1px #ccc, 1px 2px 1px #eee,
+                    3px 2px 1px #ccc, 2px 3px 1px #eee,
+                    4px 3px 1px #ccc, 3px 4px 1px #eee,
+                    5px 4px 1px #ccc, 4px 5px 1px #eee,
+                    6px 5px 1px #ccc, 5px 6px 1px #eee,
+                    7px 6px 1px #ccc;
+            font-family: "Arial Rounded MT Bold", sans-serif;
+            text-align: center;
+        }
+
+        p {
+            font-size: 25px;
+        }
+
+        #list {
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: 30px;
+            font-weight:900;
+        }
+
+        /*allikas Codepen*/
+        .peatukid {
+            background-image: linear-gradient(to right, crimson,pink,springgreen);
+            animation: rainbow 2s ease-in-out infinite;
+            background-clip: text;
+            -webkit-background-clip:text;
+            color:blue;
+            display:block;
+            transition: color .2s ease-in-out;
+            padding-bottom: 10px;
+
+        }
+        .peatukid:hover{
+            color:rgba(0,0,0,0);
+        }
+        @keyframes rainbow {
+            0%{background-position:left}
+            20%{background-position:right}
+            50%{background-position:left}
+        }
+        /*allikas Codepen*/
+
+        /*allikas Codepen*/
+        aside {
+            display: block;
+            position: relative;
+            margin: 40px 0;
+        }
+
+        aside h3 {
+            font: bold 12px Sans-Serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: #369;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 0 0 10px 0;
+            line-height: 24px;
+        }
+
+        /* Class name via Modernizr */
+        .csstransforms aside {
+            border-left: 34px solid #369;
+            padding-left: 10px;
+        }
+        .csstransforms aside h3 {
+            /* Abs positioning makes it not take up vert space */
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            /* Border is the new background */
+            background: none;
+
+            /* Rotate from top left corner (not default) */
+            transform-origin: 0 0;
+            transform: rotate(90deg);
+        }
+        /*allikas Codepen*/
+
+        .keskel {
+            text-align: center;
+        }
+
+        .paremal {
+            text-align: right;
+        }
+
+        .punane {
+            color: red;
+        }
+
+        .oranž {
+            color: darkorange;
+        }
+
+        .kollane {
+            color: darkgoldenrod;
+        }
+
+        .roheline {
+            color: darkgreen;
+        }
+
+        .helesinine {
+            color: dodgerblue;
+        }
+
+        .tumesinine {
+            color: mediumblue;
+        }
+
+        .lilla {
+            background: violet;
+        }
+
+        .alampealkiri {
+            border: 2px solid black;
+            width: 25px;
+            padding: 5px;
+        }
+
+        .pildisuurus {
+            width: 300px;
+        }
+
+        .joon {
+            height: 10px;
+            border: 1px;
+            box-shadow: inset 0 9px 9px -3px rgba(11, 99, 184, 0.8);
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            border-radius: 5px
+        }
+
+        .tabel {
+            width:100%;
+            font-size: 20px;
+        }
+
+        .piirjooned {
+            border: none;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 25px;
+            color: #0000CD;
+        }
+
+        .kalender {
+            text-align: center;
+            font-size: 80px;
+            background-color: lightsalmon;
+        }
+
+        .vaba {
+            text-align: center;
+            font-size: 80px;
+            background-color: peachpuff
+        }
+
+        .rohelinetaust {
+            background-color: lightgreen;
+        }
+
+        .oranžtaust {
+            background-color: lightsalmon;
+        }
+
+        .halltaust {
+            background-color: lightgray;
+        }
+
+        .piltparemal {
+            max-width: 20%;
+            float: right;
+            padding-left: 20px;
+            padding-top: 30px;
+        }
+
+        .piltvasakul {
+            max-width: 20%;
+            float: left;
+            padding-right: 20px;
+            padding-top: 30px;
+        }
+
+        .tsitaat {
+            color: blue;
+            background-color: beige;
+        }
+
+        .font {
+            font-family: 'Courier New', serif;
+        }
+
+        .kirjasuurus {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<a id = "Ülesanded"><h1>Ülesanded</h1></a><br>
+<div id = "list">
+    <aside>
+        <h3><strong>SISUKORD</strong></h3>
+        <ul>
+            <li>
+                <a href="#1. Ülesanne: Pealkirjastiilid, tekstilõigud, rajastamine e joondamine"  class="peatukid">1. Ülesanne: Pealkirjastiilid, tekstilõigud, rajastamine e joondamine</a>
+            </li>
+            <li>
+                <a href="#2. Ülesanne: Kujundamine" class="peatukid" >2. Ülesanne: Kujundamine</a>
+            </li>
+            <li>
+                <a href="#3. Ülesanne: Loendid" class="peatukid">3. Ülesanne: Loendid</a>
+            </li>
+            <li>
+                <a href="#4. Ülesanne: Pildid" class="peatukid">4. Ülesanne: Pildid</a>
+            </li>
+            <li>
+                <a href="#5. Ülesanne: Tabelid" class="peatukid">5. Ülesanne: Tabelid</a>
+            </li>
+            <li>
+                <a href="#6. Ülesanne: Siseviit, välisviit" class="peatukid">6. Ülesanne: Siseviit, välisviit</a>
+            </li>
+            <li>
+                <a href="#7. Ülesanne: Horisontaaljoon, lehekülje lõpuinfo" class="peatukid">7. Ülesanne: Horisontaaljoon, lehekülje lõpuinfo</a>
+            </li>
+        </ul>
+    </aside>
+</div><br>
+
+<!-- 1. Ülesanne -->
+<a id="1. Ülesanne: Pealkirjastiilid, tekstilõigud, rajastamine e joondamine"><h1>1. Ülesanne</h1></a><br>
+
+<!-- 1.1 -->
+<h3 class="alampealkiri">1.1</h3>
+<h2>2. taseme pealkiri vasakule joondus</h2>
+<h3 class="keskel">3. taseme pealkiri keskele joondus</h3>
+<h4 class="paremal">4. taseme pealkiri paremale joondus</h4>
+<br><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!--1.2-->
+<h3 class="alampealkiri">1.2</h3>
+<p>Minu nimi on Tõnis, õpin Tartu Ülikoolis Arvutiteaduse instituudis informaatikat.</p>
+<p class="keskel">Veebilehtede loomisega on mul natuke kogemust.</p>
+<p class="paremal">4. veebruar 2022, Tartu</p><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!--1.3-->
+<h3 class="alampealkiri">1.3</h3>
+<p>Paraku mul selle teema kohta arvamus puudub &#128578;.</p><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 2. Ülesanne -->
+<a id="2. Ülesanne: Kujundamine"><h1>2. Ülesanne</h1></a><br>
+
+<!-- 2.1 -->
+<h3 class="alampealkiri">2.1</h3>
+<p>Normaalkiri</p>
+<p class="punane">Selline näeb välja allajoonitud sõna: <span style="text-decoration: underline;">Näide</span></p>
+<p class="oranž">Selline näeb välja paksus kirjas sõna: <b>Näide</b></p>
+<p class="kollane">Selline näeb välja kursiivis sõna: <i>Näide</i></p>
+<p class="roheline">Selline näeb välja esiletõstetud sõna: <mark>Näide</mark></p>
+<p class="helesinine">Selline näeb välja mahakriipsutatud sõna: <del>Näide</del></p>
+<p class="tumesinine">Selline näeb välja vähendatud suurusega sõna: <small>Näide</small></p>
+<p class="lilla">Selline näeb välja lilla taustaga tekst</p>
+<p>Normaalkiri</p><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 2.2 -->
+<h3 class="alampealkiri">2.2</h3>
+<p class="tsitaat"><q>Need, kes otsivad absoluutset võimu, kuigi nad otsivad seda, et teha midagi, mida nad heaks peavad, nõuavad lihtsalt õigust jõustada oma versiooni taevast maa peal. Ja lubage mul teile meelde tuletada, et just nemad loovad alati kõige põrgulikumaid türanniaid. Absoluutne võim korrumpeerib ja need, kes seda taotlevad, peavad olema kahtlusalused ja neile tuleb vastu seista.</q> (Barry Goldwater) </p><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 2.3 -->
+<h3 class="alampealkiri">2.3</h3>
+<p class="font">1. Veebilehtede loomise kursuse materjalidest õppisin, kuidas kirjutada <sup class="tumesinine">midagi astmes</sup> ja <sub class="punane">alaindeksina.</sub> </p>
+<p>2. W3Schools materjalidest õppisin, kuidas teksti keskel sõnade <span class="oranž">värvi</span>, <span class="font">fonti</span> ja <span class="kirjasuurus">suurust</span> muuta.</p><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 3. Ülesanne -->
+<a id="3. Ülesanne: Loendid"><h1>3. Ülesanne</h1></a><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 3.1 -->
+<h3 class="alampealkiri">3.1</h3>
+<ol>
+    <li>Avaleht
+    <li>Tooted
+    <li>Meist
+    <li>Kontakt
+</ol><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 3.2 -->
+<h3 class="alampealkiri">3.2</h3>
+<ol>
+    <li>Avaleht
+        <ol type="A">
+            <li>Uudised</li>
+            <li>Kampaania</li>
+            <li>Galerii</li>
+        </ol>
+    </li>
+    <li>Tooted
+        <ol type="A">
+            <li>Allahindlused</li>
+            <li>Populaarne</li>
+            <li>Kõik tooted</li>
+        </ol>
+    </li>
+    <li>Meist
+        <ol type="A">
+            <li>Asutajad</li>
+            <li>Missioon</li>
+            <li>Meeskond</li>
+        </ol>
+    </li>
+    <li>Kontakt
+        <ol type="A">
+            <li>Aadress</li>
+            <li>Telefon</li>
+            <li>Kaart</li>
+        </ol>
+    </li>
+</ol>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 4. Ülesanne -->
+<a id="4. Ülesanne: Pildid"><h1>4. Ülesanne</h1></a><br>
+
+<!-- 4.1 -->
+<h3  class="alampealkiri">4.1</h3>
+<img src="https://cms.qz.com/wp-content/uploads/2020/10/Rinella.jpg?quality=75&strip=all&w=1600&h=900&crop=1" class="tabel" alt="rinella"><br><br><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 4.2 -->
+<h3 class="alampealkiri">4.2</h3>
+<img src="https://cms.qz.com/wp-content/uploads/2020/10/Rinella.jpg?quality=75&strip=all&w=1600&h=900&crop=1" class="piltvasakul" alt="rinella">
+<p >My freezer is full of meat from elk, moose, squirrel, feral hog, whitetail deer, caribou, black bear, and an assortment of wild fowl ranging from blue grouse to turkey.
+    What all those critters have in common— in addition to the fact that they’re the very definition of organically fed, free-range catch—is that I hunted them myself,
+    then bloodied my own hands butchering the carcasses into serving-size cuts. Every year my family consumes a few hundred pounds of the stuff, ranging from rustically
+    elegant osso buco to bizarrely inelegant deer testicles fried in oil I rendered from black bear fat. If you were to compare the total caloric value of my freezer’s contents with the total caloric output
+    that went toward harvesting it, you’d understand why I have the physique of a six-foot weasel—a vicious little creature that happens to be one of the predators I most admire.
+    Every package of meat in my freezer is something I fought for by climbing a mountain, running a river, trekking through a forest, sleeping in snow, or slogging through a swamp,
+    usually with a 40-pound pack on my back and sometimes with a grizzly on my tail. </p>
+<br><br><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 4.3 -->
+<h3 class="alampealkiri">4.3</h3>
+<img src="https://cms.qz.com/wp-content/uploads/2020/10/Rinella.jpg?quality=75&strip=all&w=1600&h=900&crop=1" class="piltparemal" alt="rinella">
+<p >My freezer is full of meat from elk, moose, squirrel, feral hog, whitetail deer, caribou, black bear, and an assortment of wild fowl ranging from blue grouse to turkey.
+    What all those critters have in common— in addition to the fact that they’re the very definition of organically fed, free-range catch—is that I hunted them myself,
+    then bloodied my own hands butchering the carcasses into serving-size cuts. Every year my family consumes a few hundred pounds of the stuff, ranging from rustically
+    elegant osso buco to bizarrely inelegant deer testicles fried in oil I rendered from black bear fat. If you were to compare the total caloric value of my freezer’s contents with the total caloric output
+    that went toward harvesting it, you’d understand why I have the physique of a six-foot weasel—a vicious little creature that happens to be one of the predators I most admire.
+    Every package of meat in my freezer is something I fought for by climbing a mountain, running a river, trekking through a forest, sleeping in snow, or slogging through a swamp,
+    usually with a 40-pound pack on my back and sometimes with a grizzly on my tail. </p>
+<br><br><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 5. Ülesanne -->
+<a id="5. Ülesanne: Tabelid"><h1>5. Ülesanne</h1></a><br>
+
+<!-- 5.1 -->
+<h3 class="alampealkiri">5.1</h3>
+<table class="tabel">
+    <tr>
+        <th>Kellaajad</th>
+        <th>Esmaspäev</th>
+        <th>Teisipäev</th>
+        <th>Kolmapäev</th>
+        <th>Neljapäev</th>
+        <th>Reede</th>
+    </tr>
+    <tr>
+        <td>8.15-10.00</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+    </tr>
+    <tr>
+        <td>10.15-12.00</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td class="rohelinetaust">Infotehnoloogia koolis</td>
+        <td class="oranžtaust">Matemaatika didaktika põhikoolile</td>
+    </tr>
+    <tr>
+        <td>12.15-14.00</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+    </tr>
+    <tr>
+        <td>14.15-16.00</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td class="oranžtaust">Matemaatika didaktika põhikoolile</td>
+    </tr>
+    <tr>
+        <td>16.15-18.00</td>
+        <td>Vaba</td>
+        <td class="oranžtaust">Lõputöö seminar</td>
+        <td class="halltaust">Multimeedia e-õpe</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+    </tr>
+    <tr>
+        <td>18.15-20.00</td>
+        <td class="halltaust">Veebilehtede loomine e-õpe</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+        <td>Vaba</td>
+    </tr>
+</table>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 5.2 -->
+<h3 class="alampealkiri">5.2</h3>
+<table class="piirjooned">
+    <tr class="piirjooned">
+        <td class="piirjooned"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBcNyK88tjOf1Rx7mfdH_MsV1QJsylRINsYR5pFXbE79oMmcYqMo4M10C-fME74ZqXN4s&usqp=CAU"  alt="emotikon"></td>
+        <td class="piirjooned">Toredat päeva!</td>
+    </tr>
+</table>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 5.3 -->
+<h3 class="alampealkiri">5.3</h3>
+<table style="border: none">
+    <tbody>
+        <tr style="border: none">
+            <th colspan="3"><h1>Irja Lutsar: mina ei saa enam aru, mis ülesannet see koroonapass täna veel täidab</h1></th>
+        </tr>
+        <tr>
+            <td style="border: none; font-size: 25px"><strong>Teadusnõukoja endine juht ja viroloogia professor Irja Lutsar ütles,
+                et peame hakkama liikuma koroonapiirangute ja -passide kaotamise poole,
+                sest koroonapass ei motiveeri enam inimesi vaktsineerima ega täida
+                seega enam sellele asetatud ülesannet.</strong></td>
+            <td style="border: none; font-size: 25px">Lutsar parafraseeris, et see, mis meid on siia toonud, ei vii meid enam edasi.
+                "Kõigepealt peame ära defineerima, millega on meil praegu tegemist.
+                Kas tegu on väga ohtliku haigusega? Sellisel juhul tuleb ka vastavalt käituda,"
+                leidis ta, vihjates, et täna pole päris selge, millist ohtu omikroni tüvi endast kujutab.</td>
+            <td style="border: none; font-size: 25px">Viroloogi hinnangul peavad haiguse defineerimiseks eksperdid kokku istuma – nii terviseameti
+                ja teadusnõukoja asjatundjad kui ka need eksperdid, kes teadusnõukojas ei ole,
+                aga kellel on vastavad teadmised: "Vaja on, et eksperdid istuksid maha
+                ja vaidleksid läbi, missuguse haigusega on praegu tegemist."</td>
+        </tr>
+    </tbody>
+</table>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<!-- 5.4 -->
+<h3 class="alampealkiri">5.4</h3>
+<table class="tabel">
+    <tr>
+        <th>Kellaajad</th>
+        <th>Esmaspäev</th>
+        <th>Teisipäev</th>
+        <th>Kolmapäev</th>
+        <th>Neljapäev</th>
+        <th>Reede</th>
+        <th>Laupäev</th>
+        <th>Pühapäev</th>
+    </tr>
+    <tr>
+        <td>8.00</td>
+        <td rowspan="8" colspan="5" class="kalender">Töö</td>
+        <td rowspan="12" colspan="2" class="vaba">Vaba</td>
+    </tr>
+    <tr>
+        <td>9.00</td>
+    </tr>
+    <tr>
+        <td>10.00</td>
+    </tr>
+    <tr>
+        <td>11.00</td>
+    </tr>
+    <tr>
+        <td>12.00</td>
+    </tr>
+    <tr>
+        <td>13.00</td>
+    </tr>
+    <tr>
+        <td>14.00</td>
+    </tr>
+    <tr>
+        <td>15.00</td>
+    </tr>
+    <tr>
+        <td>16.00</td>
+        <td rowspan="4" colspan="5" class="vaba">Vaba</td>
+    </tr>
+    <tr>
+        <td>17.00</td>
+    </tr>
+    <tr>
+        <td>18.00</td>
+    </tr>
+    <tr>
+        <td>19.00</td>
+    </tr>
+</table>
+<a href= "#Ülesanded">Sisukorda</a>
+
+<!-- 6. Ülesanne -->
+<a id = "6. Ülesanne: Siseviit, välisviit"><h1>6. Ülesanne</h1></a><br>
+
+<!-- 6.1 -->
+<h3 class="alampealkiri">6.1</h3>
+<p>Sisukorra loomine, pealkirja lisamine ja lehe algusesse minemise viida loomine.</p>
+<a href= "#Ülesanded">Sisukorda</a>
+
+<!-- 6.2 -->
+<h3 class="alampealkiri">6.2</h3>
+<h3>Neli välisviita</h3>
+<a href="https://wolt.com/en/discovery" class="piirjooned">Telli toit koju</a><br>
+<a href="https://www.hinnavaatlus.ee/" class="piirjooned">Leia soodsaim hind</a><br>
+<a href="https://www.youtube.com/" class="piirjooned">Uued videod iga päev</a><br>
+<a href="https://www.netflix.com/ee/" class="piirjooned">Palju filme ühest kohast</a><br><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<h3>Viited lehtedele</h3>
+<a href="https://html.spec.whatwg.org/multipage/" class="piirjooned">HTML dokumentatsioon</a><br>
+<a href="https://www.metshein.com/" class="piirjooned">Metsheina materjalid</a><br>
+<a href="https://www.w3schools.com/" class="piirjooned">W3S</a><br>
+<a href="https://htmlcolorcodes.com/" class="piirjooned">Värvikoodid</a><br><br>
+
+<h3>Kliki pildile</h3>
+<a href="https://astri.ee/lounakeskus/"><img src="https://priitlauri.com/wp-content/uploads/2019/03/0B68855C-E5E6-4D37-BD99-B0828D3B177D.jpeg" alt="lõunakeskus" class="pildisuurus"></a><br>
+<a href= "#Ülesanded">Sisukorda</a><br>
+
+<hr class="joon">
+
+<!-- 7. Ülesanne -->
+<a id = "7. Ülesanne: Horisontaaljoon, lehekülje lõpuinfo"><h1>7. Ülesanne</h1></a><br>
+<a href= "#Ülesanded">Sisukorda</a>
+<p class="keskel">&copy; <a href="mailto:tonis.rahe@gmail.com">Tõnis</a> 6. veebruar 2022</p>
+</body>
+</html>
+
